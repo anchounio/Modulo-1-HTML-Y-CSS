@@ -1,0 +1,175 @@
+
+
+
+border: 1px dotted black;
+
+(lo tipico es poner solid)
+
+
+MARGIN Y PADDING, DIFERENCIAS.
+
+Margin aplica externamente de una caja, padding internamente. 
+Padding es el espacio que hay entre el borde y el contenido de la caja.
+
+Hemos visto el inspeccionar, elementos.
+
+Vemos que por defecto el navegador aplica unos margenes. Nos interesa eliminarlos siempre así:
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
+Esto no lo sabía. Se pueden poner 2 valores
+
+margin: 60px 20px;  quiere decir que 60px iría para arriba y abajo, 20px para izquierda y derecha.
+Tambien se aplica esta forma de dar valor al padding.
+
+Se pueden poner tambien 4 valores:
+
+margin: 20px 60px 30px 5px, sentido de las agujas del reloj: arriba, derecha, abajo, izquierda.
+
+
+MEDIDAS
+
+Para saber el total que mide una caja tenemos que sumar ancho del div + padding + borde.
+
+
+Si cambiamos el valor de box-sizing a border-box, el ancho del contenedor pasará a ser el indicado con width.
+
+
+box-sizing: border-box;
+Lo que esto hace es que fuerze al div a ser de la medida que le hayamos puesto sin importar el padding y el border. 
+Por defecto, box-sizing está en content-box. Esto suma el ancho que le hayamos dado + el padding y el border, dando lugar a 
+confusión.
+
+
+
+Lo vamos a añadir al empezar el css de cualquier proyecto
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+MAS COSAS
+
+max-height: 60vw limitarán la altura de una caja al 60% de la pantalla del navegador. La caja siempre tendrá ese tamaño haya el contenido que haya.
+max-width: Lo mismo pero con la anchura.
+overflow: auto;  si el contenido se pasa del contenedor, aparecerá una barra de navegación.
+
+
+DISPLAY
+
+inline se queda en horizontal, como por ejemplo la etiqueta strong. Solo se le podria dar altura, margin o padding izquierdo y derecho. 
+inline-block, ningun elemento lo tiene por defecto. Se le puede dar ancho, alto
+
+Para ver las diferencias:
+
+w3.unpocodetodo.info/css3/display.php
+
+
+
+PONER IMAGEN DE FONDO
+
+background-image: url(./nuestraRuta/imagen.png);
+Por defecto la imagen se adapta al contenedor, no trata de encajarse entera, por tanto puede no mostrarse entera.
+
+Podemos corregir esto con:
+background-position: center center; (nos centra la imagen en el eje x y en el eje y).
+De esta forma se verá un contenido central de la imagen.
+
+Con esto meteremos toda la imagen dentro de nuestro contenedor:
+
+background-size: contain; => trata de meter la imagen dentro, sin modificarla y manteniendo las proporciones.
+backgroun-size: cover => mentiene las proporciones pero recorta la imagen si es necesario. Este es el valor por defecto.
+
+
+MAS COSAS
+
+border-radius: 50%; nos convierte en circulo nuestros divs
+box-shadow: 5px 5px 10px black;
+	primero el desplazamiento horizontal de la sombra, desplazamiento vertical, radio de difusión y el color
+
+
+
+
+(11:22 de la mañana)
+
+COSAS QUE FLOTAN !!!
+
+Para poner una imagen a la derecha del texto, en css se le puede poner float:right (así de fácil).
+Está bien saber esto, pero hoy en día se hace con flexbox.
+
+David también limpia como Victor Robles para quitar el float. Esto es para anular el efecto de cualquier float que aplique a un selector.
+
+clear: both;
+
+
+POSITION static, relative, absolute, fixed y sticky.
+
+Por defecto los bloques en html están en posición static. No puede moverse.
+La posición relative permite desplazar el div a cualquier lado con top, left, right o bottom. 
+
+La posición absolute, lo primero que busca es si un padre, abuelo o lo que sea tiene posición relativa. En ese caso, al ponerle posición absoluta,
+el div estaría en referencia al padre que tenga posición relativa.  Si no es así, el div con posición absoluta tomará como referencia todo el html entero (Se comportará por tanto igual que relative).
+Por ejemplo, si le damos posición relativa a la etiqueta main, el div hijo con posición absoluta, en posición 0 se iría adonde empieza el main. Quedaría
+libre la parte del header, o sea, la parte superior de la pantalla.   Esta es la única diferencia que tiene con relative.
+
+Position fixed (fijo). Funciona igual que la posición absoluta, con la diferencia de que siempre se verá el elemento en pantalla.
+Position sticky. Mezcla entre relativo y absoluto. No puede moverse si no tiene espacio. Igual que fixed pero se puede quedar en un elemento "atascado".
+
+
+z-index
+
+Sive para dar prioridad un elemento sobre otro u otros. El valor por defecto de z-index es 0.
+Si damos a algún bloque valor 1, por ejemplo, se verá encima de cualquier otro que esté en medio.
+Aquí ya es jugar como si fueran capas para dar prioridad a unos y otros.
+
+
+
+FLEX
+
+Flex se aplica a los hijos. Por defecto alinea en el eje horizontal. Por defecto: flex-direction: row;
+
+
+Wrap, permite delimitar al espacio de la ventana los hijos (evitar barras de navegación de mierda).
+flex-wrap. Por defecto está en no-wrap.
+
+Si quiero que los elementos creen una nueva línea, usamos wrap. flex-wrap: wrap  (esto es muy útil, es responsive)
+(parece que con esto podía haberme evitado el grid: auto auto auto que metí en proyectos mios).
+                           
+Justify-content: flex-end (van al final), flex-start (al comienzo)...
+
+Si le hemos aplicado una direccion row, justify content nos permite alinear el contenido en el eje horizontal.
+Sin embargo si flex-direction está en column, justify-content permite ajustarlo en el eje vertical (david dice que esto es una putada).
+
+
+Esto puede ser confuso. Lo anoto tras preguntar a David:
+
+direction-ROW = JUSTIFY muev e en ej.horizontal
+	align items en vertical
+
+direction-COLUMN: JUSTITY mueve en eje.vertical
+	align items en horizontal.
+
+align-content... ¿cual es la diferencia con items?  Usa las mismas opciones que justity-content....
+
+
+RESUMIENDO:
+justify-content: distribuye los elementos en el mismo eje que flex-direction
+align-items: distirbuye los elementos en el eje contrario que flex-direction
+align-content: funciona igual que align-items pero permite usar otros valores como: space:between, space-evenly o space-around.
+
+
+                     
+
+
+ATAJO BRUTAL
+
+En visual, si pinchas en una linea y pulsas Control + C , se copia la línea entera sin necesidad de seleccionarla!!!
+

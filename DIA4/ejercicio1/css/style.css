@@ -1,0 +1,55 @@
+.lista li:last-child{
+    background-color: rgb(139, 139, 237)
+}
+
+
+.lista li:nth-of-type(odd){
+   text-decoration: underline;
+   text-decoration-color: green;
+}
+
+
+.lista li:nth-child(1)::after{
+    content: '😁';
+}
+
+.lista li:nth-child(2)::after{
+    content: '😆';
+}
+
+.lista li:nth-child(3)::after{
+    content: '😊';
+}
+
+.lista li:nth-child(4)::after{
+    content: '😇';
+}
+
+.lista li:nth-child(5)::after{
+    content: '🙃';
+}
+
+.lista li:nth-child(6)::after{
+    content: '😉';
+}
+
+
+.lista [lang=en]{
+    font-size: 200%;
+    text-transform: uppercase;
+}
+
+.lista li{
+    display: inline-block;
+    padding: 10px;
+}
+
+
+#provincias{
+    list-style:upper-roman
+}
+
+#provincias li:nth-child(2){
+    list-style:none;
+}
+

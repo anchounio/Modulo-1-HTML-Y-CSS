@@ -1,0 +1,125 @@
+Hechos ejercicios de aquí:
+
+
+https://flukeout.github.io/
+
+Repasarlo despues, es la leche.
+
+
+Soluciones a partir del 10:
+
+10
+*
+
+11
+plate *
+
+12
+plate + apple
+
+13
+bento ~ pickle
+
+14
+plate > apple
+
+15
+orange:first-child   o first-of-type
+
+16
+plate > apple:only-child, plate > pickle:only:child
+
+17
+apple.small, pickle.small (deberia hacerlo con last-child, revisar)
+
+18
+plate:nth-child(3)
+
+19
+bento:first-of-type (deberia hacerlo con nth-last-child)
+
+20
+apple:first-of-type
+
+21
+plate:nth-child(even)
+
+22
+plate:nth-of-type(2n+3)
+
+23
+apple:only-of-type
+
+24
+apple:last-of-type, orange:last-of-type
+
+25
+bento:empty
+
+26
+apple:not(.small)
+
+27
+[for]
+
+28
+plate[for]
+
+29
+[for="Vitaly"]
+
+30
+[for^="..."].... completar los puntos suspensivos
+
+31
+[for$="ato"]
+
+32
+[for*="obb"]
+
+
+
+
+
+Usar siempre REM como unidad de medida, pues tiene en cuenta el tamaño fuente del elemento raiz, es decir, el html.
+No usar EM.
+
+
+Si le ponemos una "a" al "rgb" le podemos poner transparencia
+rgba(0, 0, 255, 0.1)  la transparencia se controla en la última cifra, el 0.1 mostraría un poquito). 
+Los colores personalizados se añaden a :root  (es parecido a lo que hacía en saas). Se crea una variable tambien.
+
+:root{
+ --color-blue: rgba(0, 0, 255, 0.601);
+}
+
+Despues la pondriamos así:
+
+background-color: var(--color-blue)
+
+
+
+Sombras:
+
+text-shadow: 2px 2px 5px black;
+
+
+Google fonts para buscar fuentes
+
+@import url('https://fonts.google.......')
+
+Al importarse una fuente, esta suele traer varios grosores que podemos elegir.
+El grosor que elijamos se añade con font-weight
+Por ejemplo:
+font-family: 'Roboto' (esa es la fuente que hemos importado).
+font-weight: 300;
+
+
+ESPECIFICIDAD
+
+clases = 10
+
+etiquetas = 1
+
+id = 1000
+	     

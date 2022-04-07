@@ -1,0 +1,145 @@
+VIDEOS Y AUDIO
+
+Poner audio en una pagina web:
+
+<audio src="./multimedio/audio/audio.mp3" controls></audio>
+
+Atributos para poner despues de controls:
+ loop = se repite la canción
+ muted = empieza la canción muteada
+ autoplay = se ejecuta nada mas empezar
+
+
+AUTOPLAY no funciona con chrome, tengo que buscar una alternativa.
+
+
+Para poner video los atributos son los mismitos.
+
+<video srv="./multimedia/video/video.mp4" controls></video>
+
+Existe un atributo que no existe con el audio.  Este es poster. Permite poner una imagen
+de fondo mientras no empieza el video.
+
+
+TABLAS
+
+<table>
+	<tr> (table row)
+		td*3 => nos devolverá 3 lineas de td (igual que aprendí ayer con <li>
+	</tr>
+</table>
+
+
+
+//otra forma de construir una tabla. Construye por columnas
+<table>
+	<thead>
+		<tr>
+			<th>Columna A </th>
+			<th>Columna B </th>
+			<th>Columna C </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Dato 1 </td>
+			<td>Dato 2 </td>
+			<td>Dato 3 </td>
+		</tr>
+		<tr>
+			<td>Dato 1 </td>
+			<td>Dato 2 </td>
+			<td>Dato 3 </td>
+		</tr>
+		<tr>
+			<td>Dato 1 </td>
+			<td>Dato 2 </td>
+			<td>Dato 3 </td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="3">Pie de tabla</td>
+		</tr>
+	</tfoot>
+</table>
+
+
+colspan crece de izquierda a derecha, comiendose columnas
+rowspan crece de arriba a bajo, comiendose filas
+
+Las tablas se usan poco a dia de hoy
+
+
+FORMULARIOS
+
+
+David dice que siempre pongamos id y name en los inputs de los formularios.
+Tambien que le demos un label enlazado en su for con la id del input. Por ejemplo:
+<form action="#" method="get">
+	<label for="username">Usuario:</label>
+	<input type="text" id="username" name="username" />
+</form>
+
+
+La etiqueta fieldset con la etiqueta legend van juntas. Envuelven el formulario en un cuadro muy bonito, parecido a un border que nace de un texto.
+Fieldset envuelve todo. En Legend se indica de qué texto nace el envoltorio. 
+
+Atributos vistos: disabled, required, autofocus, placeholder.
+
+Para checkboxes, si pongo el label despues del checkbox, el texto del label aparecerá a la derecha del checkbox !!!!
+El atributo checked hace que venga el checkbox ya marcado.
+
+En los selectores de tipo radio, si les dejamos a todos el mismo name, solo permitirá elegir uno. Si se cambia el nombre se pueden elegir varios.
+
+En los select, el atributo selected hace que la opción se quede seleccionada por defecto.
+
+
+
+APUNTES VIDEO SOBRE GITHUB
+
+git clone "nombre del repositorio", para clonar un repositorio sobre el que luego trabajar desde visual studio.
+
+david despues crea un fichero dentro del repositorio en local, un fichero de texto llamado colores.txt, le da contenido. 
+
+comandos git
+
+git log : nos permite ver el historial de cambios del proyecto
+git add colores.txt :nos añadiría el fichero que acabamos de crear para un commit
+git add . : añade todo lo nuevo que hayamos hecho, incluidos ficheros borrados, éstos se borraran en el commit que creamos.
+git status  : sirve para ver los cambios que se van a realizar
+git commit -m "Initial commit"  : crea un commit. Entre comillas va el nombre que le damos al commit.
+
+git push -u origin "feature/first-files" : primera vez que subimos un commit desde una nueva rama.
+git push : Despues de haber creado la rama ya subiremos siempre así.
+
+Como enlazar un repositorio local con uno remoto:
+
+1º Creamos el repo local
+
+git init
+
+2º Enlazamos con el repo remoto
+
+git remote add origin https://github.com/nombredelreporemoto
+
+Es más fácil hacer git clone pero bueno xD
+
+
+Si queremos cambiar el nombre de un commit que aún no hemos pusheado:
+
+git commit --ammend
+
+(nos abre un documento, podemos cambiar el nombre del commit que viene arriba). 
+
+
+git rm nombrefichero.txt  : borraría un fichero solo en github (por si queremos dejarlo en local, tras haberlo metido en gitignore, por ejemplo).
+
+
+ATAJOS UTILES
+
+Selección múltiple: Mantengo pulsado ALT izquierdo y hago doble click en los campos que quiera modificar a la vez.
+
+
+
+
